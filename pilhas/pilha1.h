@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef float Itemp;
+typedef int Itemp;
 
 typedef struct pilha{ //ao invés de ter que definir uma variável do tipo pilha tendo que 
 	int max;			//escrever struct pilha [nome da variavel]
@@ -10,9 +10,9 @@ typedef struct pilha{ //ao invés de ter que definir uma variável do tipo pilha
 } *Pilha;
 
 
-Pilha pilha(int m){
+Pilha pilha(int m){ //uma função
 	Pilha p = (Pilha)malloc(sizeof(Pilha)); //malloc retorna um endereço de memória, portante um ponteiro deve recebê-lo
-	p->max=m;    //struct sendo passada por referência deve ser acessada dessa forma ou (*p).max
+	p->max=m;    //struct sendo passada por refer�ncia deve ser acessada dessa forma ou (*p).max
 	p->topo=-1;
 	p->item=(Itemp*)malloc(m*sizeof(Itemp));
 	return p;	
@@ -42,7 +42,6 @@ void push(Itemp n, Pilha p){
 Itemp pop(Pilha p){ //retorna o item  removido
 	if(pilhaVazia(p)){
 		printf("Pilha vazia");
-		abort();
 	}
 	Itemp x = p->item[p->topo];
 	p->topo-=1;
@@ -52,14 +51,14 @@ Itemp pop(Pilha p){ //retorna o item  removido
 
 void destroi(Pilha *Q){
 	free((*Q)->item);
+	(*Q)->item = NULL;
 	free(*Q);
-	*Q = NULL;
+	(*Q) = NULL;
 }
 
 Itemp getTopo(Pilha p){
 	if(pilhaVazia(p)){
 		printf("Pilha vazia");
-		abort();
 	}
 	return p->item[p->topo];
 }

@@ -37,7 +37,6 @@ int main(){
             if(A->item[j] > maior){
                 indice_maior = j;
                 maior = A->item[j];
-                cout << "\n" << indice_maior << maior << endl; 
             }
         }
 

@@ -1,11 +1,12 @@
 #include <iostream>
-#include "./pilha1.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "./pilha2.h"
+
 using namespace std;
 
 int main(){
-	Pilha p = pilha(5);
+	
 
 
 }
