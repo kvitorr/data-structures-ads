@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef int Itemp;
+typedef char * Itemp;
 
 typedef struct pilha{ //ao invés de ter que definir uma variável do tipo pilha tendo que 
 	int max;			//escrever struct pilha [nome da variavel]
@@ -42,10 +42,12 @@ void push(Itemp n, Pilha p){
 Itemp pop(Pilha p){ //retorna o item  removido
 	if(pilhaVazia(p)){
 		printf("Pilha vazia");
+	} else {
+		Itemp x = p->item[p->topo];
+		p->topo-=1;
+		return x;
 	}
-	Itemp x = p->item[p->topo];
-	p->topo-=1;
-	return x;
+	
 }
 
 
