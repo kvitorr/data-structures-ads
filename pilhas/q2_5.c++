@@ -22,7 +22,7 @@ int estaBalanceada(string teste){
             if(!(pop(aberta) == '(')) return 0;
         }
     }
-    return 1;
+    return pilhaVazia(aberta);
 }
 
 int main(){
