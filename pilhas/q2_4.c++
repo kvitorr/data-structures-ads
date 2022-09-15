@@ -42,7 +42,7 @@ int main(){
 
         for(int k = 0; k < qtd_de_numeros - indice_maior - i; k++){ //vai preencher a pilha B com todos os número da pilha A
             push(pop(A), B);                                        //e vai parar quando enviar o maior número para a pilha B
-                                                                    //qtd_de_numeros - indice_maior = inverte a lógica do array FIFO
+        }                                                           //qtd_de_numeros - indice_maior = inverte a lógica do array FIFO
                                                                     // - i = a cada iteração um número está sendo tirado da pilha A
                                                                     // e está sendo armazenada na pilha B, então não posso percorrer
                                                                     //todo o vetor
