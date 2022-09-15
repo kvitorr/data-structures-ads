@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef char Itemp;
+typedef int Itemp;
 
 typedef struct pilha{ //ao invés de ter que definir uma variável do tipo pilha tendo que 
 	int max;			//escrever struct pilha [nome da variavel]

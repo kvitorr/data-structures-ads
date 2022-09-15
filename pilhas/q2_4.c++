@@ -11,7 +11,7 @@ using namespace std;
 int main(){
     
     int qtd_de_numeros, indice_maior;
-    float numero, maior;
+    int numero, maior;
     printf("Quantos numeros a pilha tera? ");
     scanf("%i", &qtd_de_numeros);
 
@@ -23,7 +23,7 @@ int main(){
 
 
     for(int i = 0; i < qtd_de_numeros; i++){
-        scanf("%f", &numero);
+        scanf("%d", &numero);
         push(numero, A);
     }
 
@@ -52,9 +52,21 @@ int main(){
         push(maior, B);
     }
 
+/*
     for(int i = 0; i < qtd_de_numeros; i++){
         cout << pop(B) << " ";
     }
+*/
+
+
+    for(int i = 0; i < qtd_de_numeros; i++){
+        push(pop(B), A);
+    }
+
+    for(int i = 0; i < qtd_de_numeros; i++){
+        cout << pop(A) << " ";
+    }
+
 
     return 0;
 }
