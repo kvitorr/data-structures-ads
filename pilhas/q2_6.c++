@@ -12,14 +12,14 @@ using namespace std;
 
 
 /*
-Os elementos guardados na pilha são do tipo char *, ou seja, estão armazenando
-endereços de memória de uma variável do tipo char.
+Os elementos guardados na pilha são do tipo char *, dessa forma, estamos armazenando
+endereços de memória de uma variável que aceita receber uma cadeia de caracteres (literal string)
 
-Portanto, no primeiro for do programa, estamos armazenando três vezes o endereço
-de memória o vetor de caracteres s[11].
+Durante o primeiro for do programa, estamos armazenando três vezes o endereço
+de memória o vetor de caracteres "s"
 
-Ou seja, quando dermos pop(p), o output será a três vezes o último valor armazenado
-no vetor s[11].
+Portanto, quando dermos pop(p), o output será a três vezes o último valor armazenado
+no vetor "s".
 
 
 Output:
@@ -31,7 +31,7 @@ tres
 
 int main(){
 
-    Pilha p = pilha(5);
+    Pilha p = pilha(5); //tipo char *
     char s[11];
 
     char* palavra;

@@ -20,7 +20,7 @@ int main(){
     for(int i = 1; i <= 3; i++) {
         printf("? ");
         cin >> s;
-        palavra = strdup(s);
+        palavra = strdup(s); //realiza uma alocação de memória adequada para a string
         push(palavra, p);
     }
 
