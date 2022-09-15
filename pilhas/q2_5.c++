@@ -8,18 +8,18 @@
 #include <cstring>
 using namespace std;
 
-int estaBalanceada(string teste){
+bool estaBalanceada(string teste){
     int qtd_de_caracteres = teste.length(); 
     Pilha aberta = pilha(qtd_de_caracteres);
 
     for(int i = 0; i < qtd_de_caracteres; i++){
         if(teste[i] == '[' || teste[i] == '{' || teste[i] == '(') push(teste[i], aberta);
         if(teste[i] == ']'){
-            if(!(pop(aberta) == '[')) return 0;
+            if(!(pop(aberta) == '[')) return false;
         } else if(teste[i] == '}'){
-           if(!(pop(aberta) == '{')) return 0;
+           if(!(pop(aberta) == '{')) return false;
         } else if(teste[i] == ')'){
-            if(!(pop(aberta) == '(')) return 0;
+            if(!(pop(aberta) == '(')) return false;
         }
     }
     return pilhaVazia(aberta);
