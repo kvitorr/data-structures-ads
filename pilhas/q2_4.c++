@@ -22,7 +22,7 @@ int main(){
     printf("Preencha a pilha com %i numeros: ", qtd_de_numeros);
 
 
-    for(int i = 0; i < qtd_de_numeros; i++){
+    for(int i = 0; i < qtd_de_numeros; i++){ //preenche pilha
         scanf("%d", &numero);
         push(numero, A);
     }
@@ -32,7 +32,7 @@ int main(){
         indice_maior = 0;
         maior = A->item[0];
 
-        for(int j = 0; j < qtd_de_numeros - i; j++){
+        for(int j = 0; j < qtd_de_numeros - i; j++){ //encontra o maior número e seu índice
 
             if(A->item[j] > maior){
                 indice_maior = j;
@@ -40,16 +40,20 @@ int main(){
             }
         }
 
-        for(int k = 0; k < qtd_de_numeros - indice_maior - i; k++){
-            push(pop(A), B);
-        }
-        pop(B);
+        for(int k = 0; k < qtd_de_numeros - indice_maior - i; k++){ //vai preencher a pilha B com todos os número da pilha A
+            push(pop(A), B);                                        //e vai parar quando enviar o maior número para a pilha B
+                                                                    //qtd_de_numeros - indice_maior = inverte a lógica do array FIFO
+                                                                    // - i = a cada iteração um número está sendo tirado da pilha A
+                                                                    // e está sendo armazenada na pilha B, então não posso percorrer
+                                                                    //todo o vetor
+        
+        pop(B); // retiro o maior número da pilha B
 
 
-        for(int v = 0; v < (qtd_de_numeros - indice_maior - i - 1); v++){
-            push(pop(B), A);
+        for(int v = 0; v < (qtd_de_numeros - indice_maior - i - 1); v++){ //Preencho a pilha A com todos os números da pilha B
+            push(pop(B), A);                                              //- 1 = o numero maior da pilha A já foi retirado
         }
-        push(maior, B);
+        push(maior, B); //Armazeno o maior item encontrado, na pilha B. 
     }
 
 /*
