@@ -81,8 +81,8 @@ char getResultPosfix (char *e) {
             push(getNegacao(v), P);
 
         } else if (strchr("&|", e[i])){
-            float y = pop(P);
-            float x = pop(P);
+            char y = pop(P);
+            char x = pop(P);
             switch(e[i]){
                 case '&': push(getAnd(y, x), P); break;
                 case '|': push(getOr(y, x), P); break;
