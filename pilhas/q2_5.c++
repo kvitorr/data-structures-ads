@@ -26,7 +26,7 @@ bool estaBalanceada(string teste){
 }
 
 int main(){
-    string teste = "{[([{}])]}"; // Balanceadas: "[{()()}{}]" "{[([{}])]}"; Desbalanceadas: {[(}]} {[)()(]} 
+    string teste = "{[([{])]}"; // Balanceadas: "[{()()}{}]" "{[([{}])]}"; Desbalanceadas: {[(}]} {[)()(]} 
 
     if(estaBalanceada(teste)){
         cout << "Balanceada";
