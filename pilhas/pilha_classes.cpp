@@ -37,6 +37,7 @@ class Pilha{
 			No *elementPop = topo;
 			topo = elementPop->prox;
 			free(elementPop);
+			elementPop = NULL;
 
 			return conteudo;
 		}
@@ -45,13 +46,13 @@ class Pilha{
 			return (topo == NULL);
 		}	
 
-		void apagarPilha(Pilha *p){
-			while(!(p->isEmpty())){
-				p->pop();
+		void apagarPilha(){
+			while(!(isEmpty())){
+				pop();
 			}
-			free(p);
+
 			free(topo);
-			cout << "pilha apagada";
+			cout << "pilha apagada" << endl;
 		}
 };
 
@@ -61,15 +62,26 @@ int main(){
 
 	pilha->push('v');
 	pilha->push('i');
+
+	cout << pilha->topo << endl; //primeiro elemento -> proximo apontando para nulo
+
+	pilha->apagarPilha();
+
+
+
+
+
+	/*
+	pilha->push('i');
 	pilha->push('t');
 	pilha->push('o');
 	pilha->push('r');
 
-	cout << "press enter to continue";
+	cout << "press enter to continue: ";
 	cin >> option;
 
 	pilha->apagarPilha(pilha);
-	pilha->push('r');
 
-	cout << pilha->isEmpty() << endl;
+	cout << pilha->topo->prox << endl;
+	*/
 }
