@@ -44,11 +44,23 @@ class Fila {
             inicio = inicio->prox;
 
             free(intermediated);
+
+            if(inicio == fim){
+                fim = NULL;
+            }
             return content; 
         }
 
         bool filaVazia(){
             return (inicio == NULL);
+        }
+
+        void destroiPilha(){
+            while(!filaVazia()){
+                pop();
+            }
+            free(fim);
+            free(inicio);
         }
 };
 
@@ -63,9 +75,13 @@ int main(){
     fila1->push('o');
     fila1->push('r');
 
+    cout << fila1->fim << fila1->inicio << endl;
+
     while(!(fila1->filaVazia())){
         cout << fila1->pop();
     }
+
+    cout << fila1->fim << fila1->inicio << endl;
 
 
 };
