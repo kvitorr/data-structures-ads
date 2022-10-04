@@ -66,6 +66,10 @@ class Fila {
 
 int main(){
 
+    /*
+    Resposta: Os processos terminarão na seguinte ordem: Processo 25, Processo 46, Processo 17 e Processo 39
+    */
+
     Fila *fila1 = new Fila();
 
     fila1->push(17);
@@ -77,17 +81,20 @@ int main(){
 
     while(!fila1->filaVazia()){
         x = fila1->pop();
-        printf("\nProcesso %d ", x);
+        //printf("\nProcesso %d ", x);
         p = x/10;
         t = x%10;
 
         if(t>3) {
             calc = p*10+(t-3);
             fila1->push(calc);
-                    printf(" atual %d", calc);
+                    //printf(" atual %d", calc);
 
         } else {
             printf("Processo %d concluido\n", p);
         }
     }
+
 };
+
+
