@@ -86,9 +86,9 @@ void removerMovendo(Aluno a, Aluno *lista){
 		if(indice != -1){
 			qtd_de_elementos--;
 			indice_vazio--;
-			for(int i = 0; i < qtd_de_elementos; i++){
-				lista[indice+i].mat = lista[indice+i+1] .mat;
-				lista[indice+i].nome = lista[indice+i+1].nome;
+			for(int i = indice; i < qtd_de_elementos; i++){
+				lista[i].mat = lista[i+1] .mat;
+				lista[i].nome = lista[i+1].nome;
 			}
 		} else {
 			cout << "Erro: item selecionado para remocao nao existe." << endl;
