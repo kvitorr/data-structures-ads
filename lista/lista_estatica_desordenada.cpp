@@ -8,11 +8,11 @@ typedef struct aluno{
 }Aluno; 
 
 
-Aluno lista[30];
+Aluno lista_alunos[30];
 int qtd_de_elementos = 0;
 int indice_vazio = 0;
 
-void incluirDesordenado(Aluno e){
+void incluirDesordenado(Aluno e, Aluno *lista){
 	if(qtd_de_elementos != 30){
 		lista[indice_vazio] = e;
 		qtd_de_elementos++;
@@ -23,7 +23,7 @@ void incluirDesordenado(Aluno e){
 }
 
 //retorna a posicao do elemento procurado
-int procuraIndice(int mat){	
+int procuraIndice(int mat, Aluno *lista){	
 	for(int i = 0; i < qtd_de_elementos; i++){
 		if(mat == lista[i].mat){
 			return i;
@@ -34,7 +34,7 @@ int procuraIndice(int mat){
 }
 
 //recebe a posicao e imprime o elemento na tela
-void mostrar(int pos){ // não ta base indexada, ou seja, quero o primeiro elemento da lista, digito 1.
+void mostrar(int pos, Aluno *lista){ // não ta base indexada, ou seja, quero o primeiro elemento da lista, digito 1.
 	
 	if(pos <= qtd_de_elementos){
 		cout << "Aluno: " << lista[pos-1].nome << "\n" << "Matricula: " << lista[pos-1].mat << endl;
@@ -44,7 +44,7 @@ void mostrar(int pos){ // não ta base indexada, ou seja, quero o primeiro eleme
 }
 
 //procura o elemento e depois mostra o elemento encontrado (se nao for encontrado informa q ele nao existe)
-void consultar(int mat){	
+void consultar(int mat, Aluno *lista){	
 	bool naoEncontrado = true;
 	for(int i = 0; i < qtd_de_elementos; i++){
 		if(mat == lista[i].mat){
@@ -58,13 +58,13 @@ void consultar(int mat){
 }
 
 //estrat�gia 1: colocar o ultimo elemento da lista na posi��o do elemento removido
-void removerSubstituindo(aluno a){
+void removerSubstituindo(aluno a, Aluno *lista){
 	if(qtd_de_elementos == 0){
 		cout << "Erro: Lista vazia." << endl;
 	} else if (qtd_de_elementos == 1) {
 		cout << "Erro: nao eh possivel realizar remocao por substituicao. Lista possui apenas um aluno." << endl;
 	} else {
-		int indice = procuraIndice(a.mat);
+		int indice = procuraIndice(a.mat, lista);
 		if(indice != -1){
 			lista[indice].mat = lista[qtd_de_elementos-1].mat;
 			lista[indice].nome =  lista[qtd_de_elementos-1].nome;
@@ -77,11 +77,11 @@ void removerSubstituindo(aluno a){
 }
 
 //estrat�gia 2: mover TODOS os elementos que est�o AP�S  o elemento que deve ser removido UMA POSI��O A FRENTE.
-void removerMovendo(Aluno a){
+void removerMovendo(Aluno a, Aluno *lista){
 	if(qtd_de_elementos == 0){
 		cout << "Erro: Lista vazia." << endl;
 	} else {
-		int indice = procuraIndice(a.mat);
+		int indice = procuraIndice(a.mat, lista);
 
 		if(indice != -1){
 			qtd_de_elementos--;
@@ -97,7 +97,7 @@ void removerMovendo(Aluno a){
 }
 
 main(){
-	
+	/*
 	cout << qtd_de_elementos << endl; //0
 	cout << indice_vazio << endl; //0
 
@@ -128,11 +128,13 @@ main(){
 	/*removerSubstituindo(vitor);
 	cout << qtd_de_elementos << endl; //1
 	cout << indice_vazio << endl; //1
-*/
+
 	removerMovendo(vitor);
 	cout << qtd_de_elementos << endl; //1
 	cout << indice_vazio << endl; //1
 
 	mostrar(1); //ricardo
+	*/
+	
 }
 
