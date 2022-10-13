@@ -129,8 +129,25 @@ class Lista{
 		}
 		
 		// criar uma nova lista que seja o inverso da primeira
-		void crialistainversa(){
+		Lista* crialistainversa(){
 				
+				if(this->lst_vazia()){
+					cout << "Lista vazia..." << endl;
+				} else {
+					Lista *lista2 = new Lista();
+
+					No *atual = inicio;
+					No *proximo = inicio->prox;
+					lista2->addToInicio(inicio->mat, inicio->nome);
+
+					while(atual->prox != NULL){
+						atual = proximo;
+						proximo = atual->prox;
+						lista2->addToInicio(atual->mat, atual->nome);
+					}
+
+					return lista2;
+				}
 		}
 		
 		//inverter a propria lista
@@ -172,14 +189,18 @@ main(){
 
 	cout << endl;
 
-  	l->listaInvertida();
+  	//l->listaInvertida();
+
+	Lista *l2 = l->crialistainversa();
+
+	l2->listar();
 
 	//cout << l->inicio->nome << endl;
 	//cout << l->fim->nome << endl;
 	
-	l->listar();
+	//l->listar();
 
-	l->listaInvertida();
+	//l->listaInvertida();
 
 	//cout << endl;
 
