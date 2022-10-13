@@ -138,22 +138,22 @@ class Lista{
 			if(this->lst_vazia()){
 				cout << "Lista vazia..." << endl;
 			} else {
-				No *novo_no = inicio;
-				No *prox = novo_no->prox;
+				No *atual = inicio;
+				No *prox = atual->prox;
 
 				No *anterior = NULL;
-				novo_no->prox = NULL;
+				atual->prox = NULL;
 				fim = inicio;
 
 				while(prox != NULL){
-					anterior = novo_no;
-					novo_no = prox;
-					prox = novo_no->prox;
+					anterior = atual;
+					atual = prox;
+					prox = atual->prox;
 
-					novo_no->prox = anterior;
+					atual->prox = anterior;
 
 					if(prox == NULL) {
-						inicio = novo_no;
+						inicio = atual;
 					}
 				}
 
@@ -168,7 +168,7 @@ main(){
   	l->addToFinal(3,"Fabiola");
   	l->addToInicio(5,"Joana Oliveira");
   	l->addToInicio(6,"Cristiano Oliveira");
-  	//l->listar();
+  	l->listar();
 
 	cout << endl;
 
@@ -177,11 +177,11 @@ main(){
 	//cout << l->inicio->nome << endl;
 	//cout << l->fim->nome << endl;
 	
-	//l->listar();
+	l->listar();
 
 	l->listaInvertida();
 
-	cout << endl;
+	//cout << endl;
 
-	l->listar();
+	//l->listar();
 }
