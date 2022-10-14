@@ -29,7 +29,7 @@ bool pilhaCheia(Pilha p){
 }
 
 
-void push(Itemp n, Pilha p){
+void empilha(Itemp n, Pilha p){
 	if(pilhaCheia(p)){
 		printf("Pilha cheia");
 	} else {
@@ -39,7 +39,7 @@ void push(Itemp n, Pilha p){
 }
 
 
-Itemp pop(Pilha p){ //retorna o item  removido
+Itemp desempilha(Pilha p){ //retorna o item  removido
 	if(pilhaVazia(p)){
 		printf("Pilha vazia");
 	} else {
