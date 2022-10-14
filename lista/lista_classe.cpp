@@ -103,6 +103,12 @@ class Lista{
 						if(fim == novo_no){
 							fim = anterior;
 						}
+
+						if(novo_no == inicio){
+							inicio = novo_no->prox;
+							free(novo_no);
+							return 1;
+						}
 						anterior->prox = novo_no->prox;
 						free(novo_no);
 						return 1;
@@ -186,14 +192,18 @@ main(){
   	l->addToInicio(5,"Joana Oliveira");
   	l->addToInicio(6,"Cristiano Oliveira");
   	l->listar();
+	cout << endl;
+
+	l->removeTodos();
+	l->listar();
 
 	cout << endl;
 
   	//l->listaInvertida();
 
-	Lista *l2 = l->crialistainversa();
+	//Lista *l2 = l->crialistainversa();
 
-	l2->listar();
+	//l2->listar();
 
 	//cout << l->inicio->nome << endl;
 	//cout << l->fim->nome << endl;
