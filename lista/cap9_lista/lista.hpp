@@ -82,16 +82,21 @@ int soma(Lista L){
 }
 */
 
-void substitui(string x, string y, Lista *L){
+void substitui(Item x, Item y, Lista *L){
     if((*L) == NULL) return;
-    if((*L)->item == x) {
-        (*L)->item = y;
-        return substitui(x, y, &(*L)->prox);
-    } else return substitui(x, y, &(*L)->prox);
+    if((*L)->item == x)(*L)->item = y;
+    
+    return substitui(x, y, &(*L)->prox);
 }
 
 bool igual(Lista A, Lista B){
     if(A == NULL && B == NULL) return true;
     if(A->item == B->item) return igual(A->prox, B->prox);
     else return false;
+}
+
+Item enesimo(int n, Lista L){
+    if(L->prox == NULL) return "Fatal error";
+    if(n == 1) return L->item;
+    else return enesimo(n-1, L->prox);
 }
